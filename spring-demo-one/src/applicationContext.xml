@@ -7,13 +7,18 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+
+	<!-- carrega o arquivo sport.properties no spring -->
+	<context:property-placeholder location="classpath:sport.properties"/>
+	
     <!-- Define your beans here -->
     
     <bean id="myFortuneService" 
-    	class="com.luv2code.springdemo.HappyFortuneService"></bean>
+    	class="com.luv2code.springdemo.BadFortuneService">
+    </bean>
     
     <bean id="myCoach" 
-    	class="com.luv2code.springdemo.BaseballCoach"> 
+    	class="com.luv2code.springdemo.TrackCoach"> 
     	
     	<!--  criando a injeçao de dependencia -->
     	<!-- o que ta acontecendo aqui é que eu to criando um coach que pode ser baseballCoach ou qualquer outro 
@@ -27,6 +32,14 @@
     	
     </bean>
     
+    <bean id="myCricketCoach" class="com.luv2code.springdemo.CricketCoach">
+    	<property name="fortuneService" ref="myFortuneService"/>
+    	<property name="emailAdress" value="${foo.email}"/>
+    	<property name="team" value="${foo.team}"/>
+    </bean>
+    
+    
+   
     
 </beans>
 

@@ -1,4 +1,4 @@
-Inversão de controle:
+Inversão de controle com injeção de dependência:
 
 Ao invés de fazer
 
