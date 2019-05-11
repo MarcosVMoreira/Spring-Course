@@ -1,0 +1,86 @@
+Inversão de controle:
+
+Ao invés de fazer
+
+public class VendaDeProduto {
+	public void vendeProduto(Produto produto) {
+	    //Todo o código para a venda do produto...
+	    Log log = new Log("Arquivo.txt");
+	    log.grava(produto);
+	}
+}
+
+Fazer:
+
+public class VendaDeProduto {
+	private Log log;
+	public void VendaDeProduto(Log logVenda) {
+	    this.log = logVenda;
+	}
+	public void vendeProduto(Produto produto) {
+	    //Todo o código para a venda do produto...</span>
+            log.grava(produto);
+
+	}
+}
+
+
+********************************
+
+
+Injeção de dependência:
+
+
+Ao invés e fazer:
+
+<?php
+
+class Notification
+{
+    public function send()
+    {
+        // TODO
+    }
+}
+
+class UserCommand
+{
+    public function handle()
+    {
+        $notification = new Notification();
+
+        $notification->send();
+    }
+}
+
+
+fazer:
+
+
+<?php
+
+class Notification
+{
+    public function send()
+    {
+        // TODO
+    }
+}
+
+class UserCommand
+{
+    protected $notification;
+
+    public function __construct(Notification $notification)
+    {
+        $this->notification = $notification;
+    }
+
+    public function handle()
+    {
+        $this->notification->send();
+    }
+}
+
+
+********************************
