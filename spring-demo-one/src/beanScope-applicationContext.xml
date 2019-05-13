@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+	
+    <!-- Define your beans here -->
+    
+    <bean id="myFortuneService" 
+    	class="com.luv2code.springdemo.BadFortuneService">
+    </bean>
+    
+    <bean id="myCoach" 
+    	class="com.luv2code.springdemo.TrackCoach" scope="prototype"> 
+    	
+    	<!--  criando a injeçao de dependencia -->
+    	<!-- o que ta acontecendo aqui é que eu to criando um coach que pode ser baseballCoach ou qualquer outro 
+    	Em seguida, faço o construtor do que to criando receber um fortuneService que criei ali em cima (pra isso, meu coach tem que 
+    	ter um construtor que recebe um FortuneService criado. Nao esquecerdisso), no bean que tem id="myFortuneService" 
+    	Com isso, diminuo o acoplamento dos elementos, porque nao preciso criar uma fortune dentro do baseball coach ou qualquer coach
+    	usando hard code (criando em ajva dentro da classe). Com isso, se um dia eu quiser criar uma nota FortuneService, é só criar e passar
+    	ela aliu no bean que o id é id="myFortuneService" e gg -->
+    	
+    	<constructor-arg ref="myFortuneService"/>
+    	
+    </bean>
+    
+    
+</beans>
+
+
+
+
+

@@ -14,5 +14,14 @@ public class SoccerCoach implements Coach {
 	}
 	
 	
+	public void doOnStartup() {
+		System.out.println("SoccerCoach: Starting up spring.");
+	}
+	
+	public void doOnCleanup() {
+		System.out.println("SoccerCoach: Cleaning up spring.");
+	}
+	
+	
 
 }
