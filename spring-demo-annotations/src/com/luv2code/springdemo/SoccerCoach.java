@@ -11,6 +11,14 @@ public class SoccerCoach implements Coach {
 	public String getDailyWorkout() {
 		return "Practice 30 goals.";
 	}
+
+	@Override
+	public String getDailyFortune() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 	
 
 }
