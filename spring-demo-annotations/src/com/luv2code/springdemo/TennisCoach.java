@@ -2,10 +2,12 @@ package com.luv2code.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
 @Component
+@Scope("singleton")
 public class TennisCoach implements Coach{
 
 	/*
@@ -15,7 +17,7 @@ public class TennisCoach implements Coach{
 	 * to inject the value on the field, even it's a private field
 	 * */
 	 @Autowired
-	 @Qualifier("badFortuneService")
+	 @Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
 	
 	/*
