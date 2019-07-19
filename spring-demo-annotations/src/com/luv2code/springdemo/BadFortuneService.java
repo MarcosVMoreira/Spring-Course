@@ -40,5 +40,10 @@ public class BadFortuneService implements FortuneService {
 		
 		return data[index];
 	}
+	
+	@PostConstruct
+	private void printDataFromFile() {
+		System.out.println("Post construct: "+firstFortune+", "+secondFortune);
+	}
 
 }
