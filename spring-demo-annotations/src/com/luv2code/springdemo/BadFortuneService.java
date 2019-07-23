@@ -34,16 +34,17 @@ public class BadFortuneService implements FortuneService {
 	
 	@Override
 	public String getFortune() {
-		
-		
+
 		int index = myRandom.nextInt(data.length);
+		
+		System.out.println("Data index "+data[index]);
 		
 		return data[index];
 	}
 	
 	@PostConstruct
 	private void printDataFromFile() {
-		System.out.println("Post construct: "+firstFortune+", "+secondFortune);
+		//System.out.println("Post construct: "+firstFortune+", "+secondFortune);
 	}
 
 }
