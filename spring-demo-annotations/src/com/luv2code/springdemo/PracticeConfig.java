@@ -6,18 +6,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-//@ComponentScan("com.luv2code.springdemo")
-@PropertySource("classpath:sport.properties")
-public class SportConfig {
+
+public class PracticeConfig {
 	
 	@Bean
-	public FortuneService sadFortuneService() {
-		return new SadFortuneService();
+	public FortuneService practiceFortuneService() {
+		return new PracticeFortuneService();
 	}
 	
 	@Bean
-	public Coach swimCoach() {
-		return new SwimCoach(sadFortuneService());
+	public Coach practiceCoach() {
+		return new PracticeCoach(practiceFortuneService());
 	}
 
 }
