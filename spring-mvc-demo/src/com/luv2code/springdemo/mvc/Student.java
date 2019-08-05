@@ -21,7 +21,7 @@ public class Student {
 		countryOptions.put("FR", "Frace");
 		countryOptions.put("DE", "Germany");
 		countryOptions.put("IN", "India");
-		
+		countryOptions.put("US", "United States of America");
 		
 	}
 
