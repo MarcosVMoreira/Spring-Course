@@ -79,16 +79,20 @@ public class EmployeeDemo {
 			//Develop code to delete an object by primary key. 
 			
 			
-			Employee employee = new Employee();	
+			int theId = 1;
 			
-			employee.setIdEmployee(4);
-
-			session = factory.getCurrentSession();
 			session.beginTransaction();
 			
-			System.out.println("Removing employee with id: "+employee.getIdEmployee());
+			Employee employee = session.get(Employee.class, theId);
 			
-			session.delete(employee);
+			
+			if (employee != null) {
+				System.out.println("Deleting: " + employee);
+
+				
+				session.delete(employee);
+			}
+			
 			session.getTransaction().commit();
 			
 			System.out.println("Done.");
